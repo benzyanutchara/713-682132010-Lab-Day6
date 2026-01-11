@@ -42,21 +42,19 @@ export function getAllEventsWithOrganizer() {
         select: {
             id: true,
             category: true,
+            title: true,
+            description: true,
+            location: true,
+            date: true,
+            time: true,
+            petsAllowed: true,
             organizerId: false,
             organizer: {
                 select: {
                     name: true
                 }
             },
-            participants: {
-                select: {
-                    id: true,
-                    name: true,
-                    email: true,
-                    events: true
-                }
-            }
-        }
+        },
     });
 }
 
@@ -102,3 +100,4 @@ export async function getAllEventsWithOrganizerPagination(
 export function countEvent() {
     return prisma.event.count();
 }
+
