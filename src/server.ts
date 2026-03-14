@@ -11,7 +11,7 @@ const app = express()
 const upload = multer({ storage: multer.memoryStorage() });
 const port = process.env.PORT || 3000;
 const corsOptions:CorsOptions = {
-    origin: ['http://localhost:5051'],
+    origin: ['http://localhost:5051','https://seven13-682132010-lab-day6.onrender.com/'],
     methods: ['GET','POST','OPTIONS'],
     allowedHeaders: ['Content-Type','Authorization'],
 };
