@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express()
 const upload = multer({ storage: multer.memoryStorage() });
-const port = 3000
+const port = process.env.PORT || 3000;
 const corsOptions:CorsOptions = {
     origin: ['http://localhost:5051'],
     methods: ['GET','POST','OPTIONS'],
@@ -18,9 +18,7 @@ const corsOptions:CorsOptions = {
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use('/events',eventRoute);
-app.listen(port, () => {
-    console.log(`App listening at http://localhost:${port}`)
-})
+
 
 const webApp = express()
      const webPort= 5051
@@ -71,3 +69,6 @@ app.get('/presignedUrl', async (req: Request, res: Response) => {
 
 
 
+app.listen(port, () => {
+    console.log(`App listening at http://localhost:${port}`)
+})
